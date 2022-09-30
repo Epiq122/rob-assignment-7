@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class CustomArrayListTest {
 
@@ -14,6 +15,44 @@ public class CustomArrayListTest {
         for (int i = 0; i < 25; i++) {
             sut.add(i);
         }
+    }
+
+
+    // Message Tests
+    @Test
+    public void should_throw_exception_when_out_of_bounds() {
+        try {
+            sut.get(25);
+            fail("Should have thrown IndexOutOfBoundsExecption but did not ");
+        } catch (IndexOutOfBoundsException e) {
+            return;
+        }
+        fail("Should have thrown IndexOutOfBoundsExecption but did not ");
+
+    }
+
+    @Test
+    public void should_throw_exception_when_removing_out_of_bounds() {
+        try {
+            sut.remove(25);
+            fail("Should have thrown IndexOutOfBoundsExecption but did not ");
+        } catch (IndexOutOfBoundsException e) {
+            return;
+        }
+        fail("Should have thrown IndexOutOfBoundsExecption but did not ");
+
+    }
+
+    @Test
+    public void should_throw_exception_when_adding_out_of_bounds() {
+        try {
+            sut.add(26, -2);
+            fail("Should have thrown IndexOutOfBoundsExecption but did not ");
+        } catch (IndexOutOfBoundsException e) {
+            return;
+        }
+        fail("Should have thrown IndexOutOfBoundsExecption but did not ");
+
     }
 
     @Test
@@ -65,4 +104,30 @@ public class CustomArrayListTest {
         Integer listItem = sut.get(8);
         assertEquals(8, listItem);
     }
+
+    @Test
+    public void should_return_list_size() {
+        Integer listSize = sut.getSize();
+        assertEquals(25, listSize);
+    }
+
+    @Test
+    public void should_remove_at_index() {
+        Integer removeItem = sut.remove(22);
+
+        assertEquals(22, removeItem);
+        assertEquals(24, sut.getSize());
+
+    }
+
+    @Test
+    public void should_remove_at_start() {
+        Integer removeItem = sut.remove(0);
+
+        assertEquals(0, removeItem);
+
+
+    }
+
+
 }
