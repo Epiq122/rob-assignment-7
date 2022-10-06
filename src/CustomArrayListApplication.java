@@ -40,8 +40,10 @@ public class CustomArrayListApplication {
         CustomList<Integer> listOfNumbers = new CustomArrayList<>();
         for (int i = 0; i < 25; i++) {
             listOfNumbers.add(i, i);
+         
         }
         listOfNumbers.add(3, 16);
+
 
         for (int j = 0; j < 25; j++) {
             System.out.println(listOfNumbers.get(j));

@@ -57,13 +57,13 @@ public class CustomArrayListTest {
 
     @Test
     public void should_add_item_to_start_of_list() {
-        sut.add(0, 316);
+        sut.add(0, 99);
 
         Integer item1 = sut.get(0);
-        Integer item2 = sut.get(2);
+        Integer item2 = sut.get(1);
 
-        assertEquals(316, item1);
-        assertEquals(2, item2);
+        assertEquals(99, item1);
+        assertEquals(1, item2);
     }
 
     @Test
@@ -113,11 +113,11 @@ public class CustomArrayListTest {
 
     @Test
     public void should_remove_at_index() {
-        Integer removeItem = sut.remove(22);
+        Integer removeItem = sut.remove(5);
 
-        assertEquals(22, removeItem);
+        assertEquals(5, removeItem);
         assertEquals(24, sut.getSize());
-
+        assertEquals(0, sut.get(0));
     }
 
     @Test
@@ -125,6 +125,7 @@ public class CustomArrayListTest {
         Integer removeItem = sut.remove(0);
 
         assertEquals(0, removeItem);
+        assertEquals(24, sut.getSize());
 
 
     }
