@@ -13,7 +13,8 @@ public class CustomArrayListTest {
     public void before_each() {
         sut = new CustomArrayList<>();
         for (int i = 0; i < 25; i++) {
-            sut.add(i);
+            sut.add(i + 1);
+
         }
     }
 
@@ -46,7 +47,7 @@ public class CustomArrayListTest {
     @Test
     public void should_throw_exception_when_adding_out_of_bounds() {
         try {
-            sut.add(26, -2);
+            sut.add(26, -5);
             fail("Should have thrown IndexOutOfBoundsExecption but did not ");
         } catch (IndexOutOfBoundsException e) {
             return;
@@ -63,13 +64,13 @@ public class CustomArrayListTest {
         Integer item2 = sut.get(1);
 
         assertEquals(99, item1);
-        assertEquals(1, item2);
+        assertEquals(2, item2);
     }
 
     @Test
     public void should_return_at_at_start_of_list() {
         Integer listItem = sut.get(0);
-        assertEquals(0, listItem, "Item Found");
+        assertEquals(1, listItem, "Item Found");
     }
 
     @Test
@@ -86,23 +87,32 @@ public class CustomArrayListTest {
     @Test
     public void should_return_item_at_end_of_list() {
         Integer listItem = sut.get(24);
-        assertEquals(24, listItem, "Item Found");
+        assertEquals(25, listItem, "Item Found");
     }
 
     @Test
     public void should_add_item_to_middle_of_list() {
         sut.add(13, 111);
 
+
         Integer listItem1 = sut.get(13);
+
+        for (int i = 0; i <= sut.getSize(); i++) {
+            System.out.println(sut.get(i));
+        }
+
+
         Integer listSize = sut.getSize();
         assertEquals(listSize, 26);
         assertEquals(listItem1, 111);
+
+
     }
 
     @Test
     public void should_return_item_at_index() {
         Integer listItem = sut.get(8);
-        assertEquals(8, listItem);
+        assertEquals(9, listItem);
     }
 
     @Test
@@ -115,16 +125,17 @@ public class CustomArrayListTest {
     public void should_remove_at_index() {
         Integer removeItem = sut.remove(5);
 
-        assertEquals(5, removeItem);
+
+        assertEquals(6, removeItem);
         assertEquals(24, sut.getSize());
-        assertEquals(0, sut.get(0));
+        assertEquals(1, sut.get(0));
     }
 
     @Test
     public void should_remove_at_start() {
         Integer removeItem = sut.remove(0);
 
-        assertEquals(0, removeItem);
+        assertEquals(1, removeItem);
         assertEquals(24, sut.getSize());
 
 

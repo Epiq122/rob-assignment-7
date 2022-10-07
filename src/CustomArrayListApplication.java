@@ -5,7 +5,7 @@ public class CustomArrayListApplication {
         customArrayListApplication.teamsArray();
         System.out.println("-----------------------");
         customArrayListApplication.numbers();
-//        customArrayListApplication.lotsOfNumbers();
+        customArrayListApplication.lotsOfNumbers();
 
     }
 
@@ -40,9 +40,9 @@ public class CustomArrayListApplication {
         CustomList<Integer> listOfNumbers = new CustomArrayList<>();
         for (int i = 0; i < 25; i++) {
             listOfNumbers.add(i, i);
-         
+
         }
-        listOfNumbers.add(3, 16);
+        listOfNumbers.add(3, 316);
 
 
         for (int j = 0; j < 25; j++) {
@@ -52,12 +52,12 @@ public class CustomArrayListApplication {
 
     private void lotsOfNumbers() {
         CustomList<Integer> listOfNumbers = new CustomArrayList<>();
-        for (int i = 0; i < 5000; i++) {
+        for (int i = 0; i < 50; i++) {
             listOfNumbers.add(i, i);
         }
-        listOfNumbers.add(3, 16);
+        listOfNumbers.add(10, 25);
 
-        for (int j = 0; j < 5000; j++) {
+        for (int j = 0; j < 50; j++) {
             System.out.println(listOfNumbers.get(j));
         }
     }
