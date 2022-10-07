@@ -28,6 +28,9 @@ public class CustomArrayList<T> implements CustomList<T> {
         if (listSize == items.length) {
             items = biggerArraySize();
         }
+        for (int i = listSize - 1; i > index; i--) {
+            items[i] = items[i];
+        }
         items[index] = item;
         listSize++;
 

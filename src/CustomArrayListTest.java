@@ -96,13 +96,13 @@ public class CustomArrayListTest {
 
 
         Integer listItem1 = sut.get(13);
+        Integer listSize = sut.getSize();
 
-        for (int i = 0; i <= sut.getSize(); i++) {
+        for (int i = 0; i < listSize; i++) {
             System.out.println(sut.get(i));
         }
 
 
-        Integer listSize = sut.getSize();
         assertEquals(listSize, 26);
         assertEquals(listItem1, 111);
 
