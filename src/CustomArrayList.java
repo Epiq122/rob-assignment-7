@@ -11,11 +11,12 @@ public class CustomArrayList<T> implements CustomList<T> {
 
     @Override
     public boolean add(T item) {
-        if (listSize == items.length) {
+        if (listSize >= items.length) {
             items = biggerArraySize();
 
         }
         items[listSize++] = item;
+
 
         return true;
     }
@@ -28,8 +29,8 @@ public class CustomArrayList<T> implements CustomList<T> {
         if (listSize == items.length) {
             items = biggerArraySize();
         }
-        for (int i = listSize - 1; i > index; i--) {
-            items[i] = items[i];
+        for (int i = listSize - 1; i > index - 1; i--) {
+            items[i + 1] = items[i];
         }
         items[index] = item;
         listSize++;
@@ -53,7 +54,8 @@ public class CustomArrayList<T> implements CustomList<T> {
 
     @Override
     public T remove(int index) throws IndexOutOfBoundsException {
-        if (index >= listSize) throw new IndexOutOfBoundsException("The index: " + index + " is out of bounds");
+        if (index >= listSize || index < 0) throw new IndexOutOfBoundsException("The index: " + index + " is out of " +
+                "bounds");
         T itemRemoved = (T) items[index];
         for (int i = index; i < listSize - 1; i++) {
             items[i] = items[i + 1];

@@ -64,7 +64,7 @@ public class CustomArrayListTest {
         Integer item2 = sut.get(1);
 
         assertEquals(99, item1);
-        assertEquals(2, item2);
+        assertEquals(1, item2);
     }
 
     @Test
@@ -92,19 +92,17 @@ public class CustomArrayListTest {
 
     @Test
     public void should_add_item_to_middle_of_list() {
-        sut.add(13, 111);
+        sut.add(13, 8);
 
 
-        Integer listItem1 = sut.get(13);
+        Integer listItem1 = sut.get(8);
         Integer listSize = sut.getSize();
 
         for (int i = 0; i < listSize; i++) {
             System.out.println(sut.get(i));
         }
-
-
         assertEquals(listSize, 26);
-        assertEquals(listItem1, 111);
+        assertEquals(listItem1, 9);
 
 
     }
